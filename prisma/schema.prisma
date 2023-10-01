@@ -25,6 +25,7 @@ model Trip {
   checkIn             String
   checkOut            String
   maxGuests           Int
+  type                String
   reservations        TripReservation[]
 }
 
