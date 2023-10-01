@@ -54,7 +54,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         primaryHotefy: {
-          lighter: "#DDD5EA",
+          lighter: "#997aff",
           neutral: "#590BD8",
           darker: "#312A4F",
         },
