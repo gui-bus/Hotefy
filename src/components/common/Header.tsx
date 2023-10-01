@@ -40,10 +40,15 @@ export default function Header() {
   };
 
   return (
-    <Navbar className="h-16 mb-5 bg-neutral-100 dark:bg-[#18181b] dark:text-black drop-shadow-md">
+    <Navbar className="h-16 mb-5 bg-neutral-100 dark:bg-[#18181b] dark:text-black shadow-lg dark:border-b-1 dark:border-primaryHotefy-lighter">
       <NavbarBrand>
         <Link href="/">
-          <Image src="/logo.png" alt="Hotefy" width={150} height={40} />
+          {!isDarkMode && (
+            <Image src="/logo.png" alt="Hotefy" width={150} height={40} />
+          )}
+          {isDarkMode && (
+            <Image src="/logoDarkMode.png" alt="Hotefy" width={150} height={40} />
+          )}
         </Link>
       </NavbarBrand>
 
