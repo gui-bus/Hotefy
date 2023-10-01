@@ -2,7 +2,7 @@ import { NextAuthProvider } from "@/providers/auth";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import Header from "./components/Header";
+import Header from "../components/common/Header";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={montserrat.className}>
-        <div className="min-h-screen bg-gradient-to-b from-gray-300 to-gray-200 dark:from-neutral-800 dark:to-neutral-600 montserrat.className">
+        <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-neutral-400 dark:to-neutral-500 montserrat.className">
           <NextAuthProvider>
             <Header />
             {children}
