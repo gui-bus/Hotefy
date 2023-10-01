@@ -26,6 +26,8 @@ model Trip {
   checkOut            String
   maxGuests           Int
   type                String
+  recommended         Boolean           @default(false)
+  countryCode         String
   reservations        TripReservation[]
 }
 
