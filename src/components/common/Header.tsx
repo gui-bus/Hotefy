@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 import {
@@ -22,32 +22,59 @@ import { TbSunMoon } from "react-icons/tb";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const { status, data } = useSession();
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const storedDarkMode = localStorage.getItem("darkMode");
+    return storedDarkMode === "true";
+  });
+
   const handleLoginClick = () => signIn("google");
   const handleLogoutClick = () => signOut();
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
 
-    // Adicione ou remova a classe 'dark' ao elemento HTML
+    localStorage.setItem("darkMode", newDarkMode.toString());
+
     const htmlElement = document.querySelector("html");
-    if (isDarkMode) {
-      htmlElement?.classList.remove("dark");
-    } else {
+    if (newDarkMode) {
       htmlElement?.classList.add("dark");
+    } else {
+      htmlElement?.classList.remove("dark");
     }
   };
 
+  useEffect(() => {
+    const htmlElement = document.querySelector("html");
+    if (isDarkMode) {
+      htmlElement?.classList.add("dark");
+    } else {
+      htmlElement?.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
   return (
-    <Navbar className="h-16 mb-5 bg-neutral-100 dark:bg-[#18181b] dark:text-black shadow-lg dark:border-b-1 dark:border-primaryHotefy-lighter">
+    <Navbar className="h-16 bg-neutral-100 dark:bg-[#18181b] dark:text-black shadow-lg dark:border-b-1 dark:border-primaryHotefy-lighter">
       <NavbarBrand>
         <Link href="/">
           {!isDarkMode && (
-            <Image src="/logo.png" alt="Hotefy" width={150} height={40} />
+            <Image
+              src="/logo.png"
+              alt="Hotefy"
+              width={150}
+              height={40}
+              priority
+            />
           )}
           {isDarkMode && (
-            <Image src="/logoDarkMode.png" alt="Hotefy" width={150} height={40} />
+            <Image
+              src="/logoDarkMode.png"
+              alt="Hotefy"
+              width={150}
+              height={40}
+              priority
+            />
           )}
         </Link>
       </NavbarBrand>
