@@ -1,13 +1,11 @@
 "use client";
-import CurrencyInput from "@/components/common/CurrencyInput";
-import DatePicker from "@/components/common/DatePicker";
 import Input from "@/components/common/Input";
 import { Button } from "@nextui-org/react";
 import React from "react";
 import worldMap from "@/../public/world-map.png";
 
 import { ImSearch } from "react-icons/im";
-import QuickSearch from "./QuickSearch";
+
 
 const TripSearch = () => {
   return (

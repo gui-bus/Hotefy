@@ -1,3 +1,4 @@
+'use client'
 import { cn } from "@/lib/utils";
 import { Button } from "@nextui-org/react";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -29,7 +30,7 @@ const recommendedData = [
   { href: "/modern-oceanfront", text: "Modern Oceanfront" },
   { href: "/ocaso-luxury-villa", text: "Ocaso Luxury Villa" },
   { href: "/oceans-edge", text: "Ocean's Edge" },
-  { href: "/villa-joglo", text: "Villa Joglo" },
+  { href: "/paradise", text: "Paradise" },
   { href: "/whispering-pines", text: "Whispering Pines" },
   { href: "/yui-valley", text: "Yui Valley" },
   { href: "/zion-ecocabin", text: "Zion EcoCabin" },
