@@ -1,9 +1,11 @@
-"use client";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Sidebar } from "./SideBar";
+import RecommendedTrips from "./AllTrips";
+import NationalTrips from "./NationalTrips";
+import InternationalTrips from "./InternationalTrips";
 
 export default function TripTabs() {
   return (
@@ -36,7 +38,7 @@ export default function TripTabs() {
                     >
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                          <h2 className="text-2xl font-semibold tracking-tight">
+                          <h2 className="text-2xl font-semibold tracking-tight ">
                             Descubra sua Próxima Aventura
                           </h2>
                           <p className="text-sm text-muted-foreground">
@@ -48,8 +50,8 @@ export default function TripTabs() {
                       </div>
                       <Separator className="my-4" />
                       <div className="relative">
-                        <ScrollArea className="h-80 px-3 py-2">
-                          Inserir cards de todas as viagens aqui
+                        <ScrollArea className="h-full">
+                          <RecommendedTrips />
                           <ScrollBar orientation="horizontal" />
                         </ScrollArea>
                       </div>
@@ -72,8 +74,8 @@ export default function TripTabs() {
                       </div>
                       <Separator className="my-4" />
                       <div className="relative">
-                        <ScrollArea className="h-80 px-3 py-2">
-                          Inserir cards das viagens do brasil aqui
+                        <ScrollArea className="h-full">
+                          <NationalTrips />
                           <ScrollBar orientation="horizontal" />
                         </ScrollArea>
                       </div>
@@ -96,8 +98,8 @@ export default function TripTabs() {
                       </div>
                       <Separator className="my-4" />
                       <div className="relative">
-                        <ScrollArea className="h-80 px-3 py-2">
-                          Inserir cards das viagens internacionais aqui
+                        <ScrollArea className="h-full">
+                          <InternationalTrips />
                           <ScrollBar orientation="horizontal" />
                         </ScrollArea>
                       </div>
