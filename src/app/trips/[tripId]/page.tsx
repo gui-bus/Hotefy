@@ -22,7 +22,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
   if (!trip) return null;
 
   return (
-    <section className="overflow-x-hidden">
+    <section className="overflow-x-hidden dark:bg-[#18181b]">
       <div className="w-full h-full">
         <ImageSwiper imagesUrl={trip.imagesUrl} />
       </div>
@@ -31,6 +31,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
         <TripHeader trip={trip}/>
         <TripDivider/>
         <TripReservation trip={trip}/>
+        <TripDivider/>
       </div>
     </section>
   );
