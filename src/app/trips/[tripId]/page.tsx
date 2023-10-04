@@ -1,8 +1,8 @@
 import ImageSwiper from "@/components/TripDetails/ImageSwiper";
 import TripDivider from "@/components/TripDetails/TripDivider";
 import TripHeader from "@/components/TripDetails/TripHeader";
+import TripReservation from "@/components/TripDetails/TripReservation";
 import { prisma } from "@/lib/prisma";
-import { Divider } from "@nextui-org/react";
 import "swiper/swiper-bundle.css";
 
 
@@ -30,6 +30,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
       <div className="w-full mx-auto p-4 flex flex-col">
         <TripHeader trip={trip}/>
         <TripDivider/>
+        <TripReservation trip={trip}/>
       </div>
     </section>
   );
