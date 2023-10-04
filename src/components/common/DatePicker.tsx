@@ -34,10 +34,11 @@ function DatePicker(
         wrapperClassName="w-full"
         className={datePickerClassName}
         enableTabLoop={false}
+        dateFormat="dd/MM/yyyy"
         {...props}
       />
       {error && errorMessage && (
-        <div className="mt-1 text-xs text-red-400 flex justify-start">
+        <div className="mt-2 font-medium text-xs text-red-400 dark:text-red-300 flex justify-start">
           {errorMessage}
         </div>
       )}
