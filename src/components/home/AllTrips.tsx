@@ -9,15 +9,15 @@ const fetchTrips = async () => {
   return trips;
 };
 
-const RecommendedTrips = async () => {
+const AllTrips = async () => {
   const data = await fetchTrips();
 
   await prisma.$disconnect();
 
   return (
-    <section className="w-full p-2 mx-auto flex flex-wrap">
+    <section className="w-full mx-auto flex flex-wrap">
       {data.map((trip: Trip) => (
-        <div key={trip.id} className="mx-auto px-1">
+        <div key={trip.id} className="mx-auto">
           <TripItem trip={trip} />
         </div>
       ))}
@@ -25,4 +25,4 @@ const RecommendedTrips = async () => {
   );
 };
 
-export default RecommendedTrips;
+export default AllTrips;

@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Sidebar } from "./SideBar";
-import RecommendedTrips from "./AllTrips";
+import AllTrips from "./AllTrips";
 import NationalTrips from "./NationalTrips";
 import InternationalTrips from "./InternationalTrips";
 
@@ -36,7 +36,7 @@ export default function TripTabs() {
                       value="all"
                       className="border-none p-0 outline-none"
                     >
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between text-center md:text-left">
                         <div className="space-y-1">
                           <h2 className="text-2xl font-semibold tracking-tight ">
                             Descubra sua Próxima Aventura
@@ -51,7 +51,7 @@ export default function TripTabs() {
                       <Separator className="my-4" />
                       <div className="relative">
                         <ScrollArea className="h-full">
-                          <RecommendedTrips />
+                          <AllTrips />
                           <ScrollBar orientation="horizontal" />
                         </ScrollArea>
                       </div>
@@ -61,7 +61,7 @@ export default function TripTabs() {
                       value="national"
                       className="border-none p-0 outline-none"
                     >
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between text-center md:text-left">
                         <div className="space-y-1">
                           <h2 className="text-2xl font-semibold tracking-tight">
                             Explore as Melhores Hospedagens no Brasil
@@ -85,7 +85,7 @@ export default function TripTabs() {
                       value="international"
                       className="border-none p-0 outline-none"
                     >
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between text-center md:text-left">
                         <div className="space-y-1">
                           <h2 className="text-2xl font-semibold tracking-tight">
                             Viagens de Luxo ao Redor do Mundo

@@ -4,7 +4,7 @@ import React from "react";
 import ReactCountryFlag from "react-country-flag";
 import NextImage from "next/image";
 
-import { Card, CardFooter, Image, Button } from "@nextui-org/react";
+import { Card, CardFooter, Image } from "@nextui-org/react";
 import Link from "next/link";
 
 interface TripItemProps {
@@ -18,7 +18,7 @@ const TripItem = ({ trip }: TripItemProps) => {
       <Card
         isPressable
         radius="md"
-        className="border-none w-80 mb-3 shadow-none select-none"
+        className="border-none w-[18.5rem] mb-3 lg:mb-5 shadow-none select-none"
       >
         <Image
           className="object-cover h-full w-full aspect-square"

@@ -28,6 +28,8 @@ function DatePicker(
   return (
     <div className="flex w-full flex-col">
       <_DatePicker
+        withPortal
+        showPopperArrow={false}
         locale="pt-BR"
         wrapperClassName="w-full"
         className={datePickerClassName}
@@ -35,7 +37,9 @@ function DatePicker(
         {...props}
       />
       {error && errorMessage && (
-        <div className="mt-1 text-xs text-red-400 flex justify-start">{errorMessage}</div>
+        <div className="mt-1 text-xs text-red-400 flex justify-start">
+          {errorMessage}
+        </div>
       )}
     </div>
   );

@@ -121,4 +121,34 @@
   color: white; /* Cor de texto para o mês e ano no cabeçalho */
 }
 
+.swiper-button-prev:after{
+  left: calc(32%)
+}
+.swiper-button-next:after{
+  left: calc(32%);
+}
 
+.swiper-button-next,.swiper-button-prev{
+    width: 42px !important;
+    height: 42px !important;
+    background: rgba(255, 255, 255, 0.70);
+    border-radius: 50%;
+}
+.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: 22px;
+}
+.swiper-pagination-bullet{
+opacity: 0.6 !important;
+background-color: #fff !important;
+}
+.swiper-pagination-bullet-active{
+opacity: 1 !important;
+background-color: #fff !important;
+}
+.swiper-button-next:after,.swiper-button-prev:after{
+  color: #000;
+  font-size: 22px !important;
+  font-weight: bold;
+  position:absolute;
+ 
+}
