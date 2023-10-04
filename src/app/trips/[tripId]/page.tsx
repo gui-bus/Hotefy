@@ -6,7 +6,6 @@ import { prisma } from "@/lib/prisma";
 import "swiper/swiper-bundle.css";
 import PrismaDisconnect from "@/components/common/PrismaDisconnect";
 import TripInfo from "@/components/TripDetails/TripInfo";
-import TripMap from "@/components/TripDetails/TripMap";
 import TripLocation from "@/components/TripDetails/TripLocation";
 
 const getTripDetails = async (tripId: string) => {

@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Header from "../components/common/Header";
+import Footer from "@/components/common/Footer";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <NextAuthProvider>
             <Header />
             {children}
+            <Footer/>
           </NextAuthProvider>
         </div>
       </body>
