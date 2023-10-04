@@ -62,18 +62,20 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Hotefy"
-              width={150}
+              width={120}
               height={40}
               priority
+              style={{width: 'auto', height: 'auto'}}
             />
           )}
           {isDarkMode && (
             <Image
               src="/logoDarkMode.png"
               alt="Hotefy"
-              width={150}
+              width={120}
               height={40}
               priority
+              style={{width: 'auto', height: 'auto'}}
             />
           )}
         </Link>
