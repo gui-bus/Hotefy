@@ -10,6 +10,8 @@ const TripMap: React.FC<MapProps> = ({ location }) => {
   const mapContainerStyle = {
     width: '100%',
     height: '25rem',
+    borderRadius: '12px',
+    overflow: 'hidden',
   };
 
   const defaultCenter = { lat: 0, lng: 0 }; // Centro de mapa padrão
