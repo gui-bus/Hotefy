@@ -8,7 +8,9 @@ import { Button } from "@nextui-org/react";
 import { Controller, useForm } from "react-hook-form";
 
 interface TripReservationsProps {
-  trip: Trip;
+  tripStartDate: Date;
+  tripEndDate: Date;
+  maxGuests: number;
 }
 
 interface TripReservationFormProps {
@@ -17,17 +19,20 @@ interface TripReservationFormProps {
   endDate: Date | null;
 }
 
-const TripReservation = ({ trip }: TripReservationsProps) => {
+const TripReservation = ({ maxGuests, tripEndDate, tripStartDate }: TripReservationsProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
+    watch
   } = useForm<TripReservationFormProps>();
 
   const onSubmit = (data: any) => {
     console.log({ data });
   };
+
+  const startDate = watch("startDate")
 
   return (
     <div className="text-primaryHotefy-darker dark:text-white p-2 bg-muted dark:bg-neutral-200/10 rounded-lg">
@@ -55,6 +60,7 @@ const TripReservation = ({ trip }: TripReservationsProps) => {
                   selected={field.value}
                   placeholderText="Insira a data inicial da viagem"
                   className="w-full"
+                  minDate={tripStartDate}
                 />
               )}
             />
@@ -81,6 +87,8 @@ const TripReservation = ({ trip }: TripReservationsProps) => {
                   selected={field.value}
                   placeholderText="Insira a data final da viagem"
                   className="w-full"
+                  maxDate={tripEndDate}
+                  minDate={startDate ?? tripStartDate }
                 />
               )}
             />
@@ -89,7 +97,7 @@ const TripReservation = ({ trip }: TripReservationsProps) => {
 
         <div className="flex flex-col gap-1 w-full mt-2">
           <label htmlFor="guestLbl" className="text-tiny">
-            {`Número de hóspedes (máximo: ${trip.maxGuests})`}
+            {`Número de hóspedes (máximo: ${maxGuests})`}
           </label>
           <Input
             {...register("guests", {

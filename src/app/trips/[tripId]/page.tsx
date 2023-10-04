@@ -34,7 +34,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
       <div className="w-full mx-auto p-4 flex flex-col">
         <TripHeader trip={trip} />
         <TripDivider />
-        <TripReservation trip={trip} />
+        <TripReservation tripEndDate={trip.endDate} tripStartDate={trip.startDate} maxGuests={trip.maxGuests} />
         <TripDivider />
         <TripInfo trip={trip} />
         <TripDivider />
