@@ -2,15 +2,16 @@
 import React from "react";
 import DatePicker from "../common/DatePicker";
 import Input from "../common/Input";
-import { Trip } from "@prisma/client";
 import { Button } from "@nextui-org/react";
 
 import { Controller, useForm } from "react-hook-form";
+import { differenceInDays } from "date-fns";
 
 interface TripReservationsProps {
   tripStartDate: Date;
   tripEndDate: Date;
   maxGuests: number;
+  pricePerDay: number;
 }
 
 interface TripReservationFormProps {
@@ -19,20 +20,26 @@ interface TripReservationFormProps {
   endDate: Date | null;
 }
 
-const TripReservation = ({ maxGuests, tripEndDate, tripStartDate }: TripReservationsProps) => {
+const TripReservation = ({
+  maxGuests,
+  tripEndDate,
+  tripStartDate,
+  pricePerDay,
+}: TripReservationsProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
-    watch
+    watch,
   } = useForm<TripReservationFormProps>();
 
   const onSubmit = (data: any) => {
     console.log({ data });
   };
 
-  const startDate = watch("startDate")
+  const startDate = watch("startDate");
+  const endDate = watch("endDate");
 
   return (
     <div className="text-primaryHotefy-darker dark:text-white p-2 bg-muted dark:bg-neutral-200/10 rounded-lg">
@@ -88,7 +95,7 @@ const TripReservation = ({ maxGuests, tripEndDate, tripStartDate }: TripReservat
                   placeholderText="Insira a data final da viagem"
                   className="w-full"
                   maxDate={tripEndDate}
-                  minDate={startDate ?? tripStartDate }
+                  minDate={startDate ?? tripStartDate}
                 />
               )}
             />
@@ -115,9 +122,30 @@ const TripReservation = ({ maxGuests, tripEndDate, tripStartDate }: TripReservat
           />
         </div>
 
-        <div className="flex justify-between mt-4">
-          <p className="font-medium text-sm">Total:</p>
-          <p className="font-medium text-sm">R$ 2500</p>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-1 my-3 text-sm">
+          <p className="font-medium">
+            {startDate && endDate
+              ? `Valor total para ${differenceInDays(
+                  endDate,
+                  startDate
+                )} dias de viagem`
+              : ""}
+          </p>
+          <p className="font-medium">
+            {startDate && endDate ? (
+              <span className="text-primaryHotefy-neutral dark:text-primaryHotefy-lighter font-bold">
+                {(
+                  differenceInDays(endDate, startDate) * pricePerDay
+                ).toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                  minimumFractionDigits: 0,
+                })}
+              </span>
+            ) : (
+              ""
+            )}
+          </p>
         </div>
         <Button
           onClick={() => handleSubmit(onSubmit)()}
