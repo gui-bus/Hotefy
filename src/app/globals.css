@@ -74,3 +74,51 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Estilize o dia selecionado */
+.react-datepicker__day--selected {
+  background-color: #590BD8 !important;
+  color: white; /* Adicione uma cor de texto para melhor legibilidade */
+  border-radius: 50%; /* Adicione uma borda arredondada ao dia selecionado */
+}
+
+/* Estilize os dias não selecionados ao passar o mouse */
+.react-datepicker__day:not(.react-datepicker__day--disabled):not(.react-datepicker__day--selected):hover {
+  transition: all 0.4s;
+  background-color: #590BD8 !important;
+  color: white;
+  border-radius: 50%; /* Adicione uma borda arredondada */
+}
+
+/* Estilize os dias não selecionados */
+.react-datepicker__day:not(.react-datepicker__day--disabled):not(.react-datepicker__day--selected) {
+  background-color: transparent !important; /* Remova o fundo padrão */
+  @apply bg-purple-100; /* Use a classe bg-purple-100 para fundo personalizado */
+}
+
+/* Estilize os dias desabilitados */
+.react-datepicker__day--disabled {
+  background-color: transparent !important; /* Remova o fundo padrão */
+  @apply bg-gray-50 cursor-not-allowed; /* Use a classe bg-gray-50 e cursor-not-allowed para desabilitados */
+}
+
+/* Estilize os dias desabilitados ao passar o mouse */
+.react-datepicker__day--disabled:hover {
+  background-color: transparent !important; /* Remova o fundo padrão */
+  @apply bg-gray-50 cursor-not-allowed; /* Use a classe bg-gray-50 e cursor-not-allowed para desabilitados */
+}
+
+/* Estilize o cabeçalho do calendário */
+.react-datepicker__header {
+  background-color: #590BD8; /* Cor de fundo para o cabeçalho */
+  color: white; /* Cor de texto para o cabeçalho */
+  @apply bg-purple-200; /* Use a classe bg-purple-200 para um fundo personalizado */
+}
+
+/* Estilize o mês e o ano no cabeçalho */
+.react-datepicker__current-month,
+.react-datepicker__current-year {
+  color: white; /* Cor de texto para o mês e ano no cabeçalho */
+}
+
+
