@@ -1,6 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Swiper from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { register } from "swiper/element/bundle";
+
+register();
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 import Image from "next/image"; // Importe o componente Image do Next.js
 
@@ -28,18 +34,15 @@ const ImageSwiper: React.FC<ImageSwiperProps> = ({ imagesUrl }) => {
     };
   }, []);
 
-  useEffect(() => {
-    new Swiper(".swiper-container", {
-      slidesPerView: slidesPerView,
-      spaceBetween: 0,
-    });
-  }, [slidesPerView]);
-
   return (
     <div className="swiper-container">
-      <div className="swiper-wrapper">
+      <Swiper
+      slidesPerView={slidesPerView}
+      pagination={{clickable: true}}
+      navigation>
         {imagesUrl.map((imageUrl, index) => (
-          <div className="swiper-slide" key={index}>
+          <SwiperSlide key={index}>
+            <div className="swiper-slide" key={index}>
             <div className="relative h-72 md:h-96 w-full mx-auto">
               <Image
                 src={imageUrl}
@@ -49,8 +52,9 @@ const ImageSwiper: React.FC<ImageSwiperProps> = ({ imagesUrl }) => {
               />
             </div>
           </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
