@@ -21,8 +21,6 @@ const TripHeader = async ({ trip }: TripHeaderProps) => {
           {parseFloat(trip.pricePerDay.toString()).toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
           })}
         </span>{" "}
         por dia

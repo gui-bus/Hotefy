@@ -139,7 +139,6 @@ const TripReservation = ({
                 ).toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
-                  minimumFractionDigits: 0,
                 })}
               </span>
             ) : (
@@ -151,7 +150,7 @@ const TripReservation = ({
           onClick={() => handleSubmit(onSubmit)()}
           variant="shadow"
           color="secondary"
-          className="mt-2 font-medium"
+          className="font-medium"
         >
           Reservar viagem
         </Button>
