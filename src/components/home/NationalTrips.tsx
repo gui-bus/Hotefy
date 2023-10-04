@@ -11,6 +11,8 @@ const fetchTrips = async () => {
 const NationalTrips = async () => {
   const data = await fetchTrips();
 
+  await prisma.$disconnect();
+
   // Filtrar as trips com countryCode igual a 'BR'
   const brazilTrips = data.filter((trip: Trip) => trip.countryCode === 'BR');
 

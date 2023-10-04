@@ -12,6 +12,8 @@ const fetchTrips = async () => {
 const RecommendedTrips = async () => {
   const data = await fetchTrips();
 
+  await prisma.$disconnect();
+
   return (
     <section className="w-full p-2 mx-auto flex flex-wrap">
       {data.map((trip: Trip) => (

@@ -11,6 +11,8 @@ const fetchTrips = async () => {
 const InternationalTrips = async () => {
   const data = await fetchTrips();
 
+  await prisma.$disconnect();
+
   const nonBrazilTrips = data.filter((trip: Trip) => trip.countryCode !== 'BR');
 
   return (
