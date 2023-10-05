@@ -13,13 +13,18 @@ import {
 import NextImage from "next/image";
 import ReactCountryFlag from "react-country-flag";
 import { Trip } from "@prisma/client";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { differenceInDays, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
   const [trip, setTrip] = useState<Trip | null>();
   const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  const { status } = useSession();
+  const router = useRouter();
 
   const searchParams = useSearchParams();
 
@@ -38,8 +43,13 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
       setTotalPrice(totalPrice);
     };
 
+    if (status === "unauthenticated") {
+      router.push("/");
+    }
+
     fetchTrip();
-  }, [params.tripId, searchParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status]);
 
   if (!trip) return null;
 
@@ -110,7 +120,11 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <Button variant="shadow" color="secondary" className="mx-auto my-3 bg-secondary dark:bg-primaryHotefy-lighter">
+          <Button
+            variant="shadow"
+            color="secondary"
+            className="mx-auto my-3 bg-secondary dark:bg-primaryHotefy-lighter"
+          >
             Finalizar compra
           </Button>
         </CardFooter>

@@ -7,6 +7,7 @@ import { Button } from "@nextui-org/react";
 import { Controller, useForm } from "react-hook-form";
 import { differenceInDays } from "date-fns";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 interface TripReservationsProps {
   tripId: string;
@@ -37,6 +38,8 @@ const TripReservation = ({
     watch,
     setError,
   } = useForm<TripReservationFormProps>();
+
+  const { status } = useSession();
 
   const router = useRouter();
 
@@ -81,7 +84,9 @@ const TripReservation = ({
     }
 
     router.push(
-      `/trips/${tripId}/confirmation?startDate=${data.startDate?.toISOString()}&endDate=${data.endDate?.toISOString()}&guests=${data.guests}`
+      `/trips/${tripId}/confirmation?startDate=${data.startDate?.toISOString()}&endDate=${data.endDate?.toISOString()}&guests=${
+        data.guests
+      }`
     );
   };
 
@@ -203,14 +208,29 @@ const TripReservation = ({
             )}
           </p>
         </div>
-        <Button
-          onClick={() => handleSubmit(onSubmit)()}
-          variant="shadow"
-          color="secondary"
-          className="font-medium"
-        >
-          Reservar viagem
-        </Button>
+        {status === "authenticated" && (
+          <Button
+            onClick={() => handleSubmit(onSubmit)()}
+            variant="shadow"
+            color="secondary"
+            className="font-medium"
+          >
+            Reservar viagem
+          </Button>
+        )}
+        {status === "unauthenticated" && (
+          <div className="flex flex-col w-full items-center justify-center">
+            <Button
+              variant="shadow"
+              color="secondary"
+              className="font-medium w-full"
+              isDisabled
+            >
+              Reservar viagem
+            </Button>
+            <p className="mt-2 font-medium text-xs">Para reservar uma viagem é necessário fazer login!</p>
+          </div>
+        )}
       </div>
     </div>
   );
