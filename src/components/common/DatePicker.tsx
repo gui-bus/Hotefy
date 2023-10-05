@@ -35,6 +35,7 @@ function DatePicker(
         className={datePickerClassName}
         enableTabLoop={false}
         dateFormat="dd/MM/yyyy"
+        autoComplete="off"
         {...props}
       />
       {error && errorMessage && (
