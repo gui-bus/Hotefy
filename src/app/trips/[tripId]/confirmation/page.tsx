@@ -23,7 +23,8 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
   const [trip, setTrip] = useState<Trip | null>();
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
-  const { status } = useSession();
+  const { status, data } = useSession();
+
   const router = useRouter();
 
   const searchParams = useSearchParams();
@@ -57,6 +58,29 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
   }, [status]);
 
   if (!trip) return null;
+
+  const handleBuyClick = async () => {
+    const res = await fetch("http://localhost:3000/api/trips/reservation", {
+      method: "POST",
+      body: Buffer.from(
+        JSON.stringify({
+          tripId: params.tripId,
+          startDate: searchParams.get("startDate"),
+          endDate: searchParams.get("endDate"),
+          guests: Number(searchParams.get("guests")),
+          userId: (data?.user as any)?.id!,
+          totalPaid: totalPrice,
+        })
+      ),
+    });
+
+    if (!res.ok) {
+      return toast.error("Ocorreu um erro ao realizer a sua reserva!");
+    }
+
+    router.push('/')
+    toast.success("Reserva realizada com sucesso!");
+  };
 
   const startDate = new Date(searchParams.get("startDate") as string);
   const endDate = new Date(searchParams.get("endDate") as string);
@@ -129,6 +153,7 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
             variant="shadow"
             color="secondary"
             className="mx-auto my-3 bg-secondary dark:bg-primaryHotefy-lighter"
+            onClick={handleBuyClick}
           >
             Finalizar compra
           </Button>
