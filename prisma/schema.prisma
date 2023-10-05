@@ -40,6 +40,7 @@ model TripReservation {
   startDate DateTime
   endDate   DateTime
   totalPaid Decimal  @db.Decimal(8, 2)
+  guests    Int      @default(1)
 }
 
 model Account {
