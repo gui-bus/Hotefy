@@ -65,7 +65,7 @@ export default function Header() {
               width={120}
               height={40}
               priority
-              style={{width: 'auto', height: 'auto'}}
+              style={{ width: "auto", height: "auto" }}
             />
           )}
           {isDarkMode && (
@@ -75,7 +75,7 @@ export default function Header() {
               width={120}
               height={40}
               priority
-              style={{width: 'auto', height: 'auto'}}
+              style={{ width: "auto", height: "auto" }}
             />
           )}
         </Link>
@@ -175,7 +175,7 @@ export default function Header() {
               </DropdownItem>
               <DropdownItem startContent={<FaUser />}>Perfil</DropdownItem>
               <DropdownItem startContent={<FaSuitcaseRolling />}>
-                Minhas viagens
+                <Link href="/my-trips">Minhas viagens</Link>
               </DropdownItem>
 
               <DropdownItem startContent={<FaCog />}>

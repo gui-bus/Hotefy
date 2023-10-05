@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={montserrat.className}>
-        <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-neutral-400 dark:to-neutral-500 montserrat.className">
+        <div className="flex flex-col min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-neutral-400 dark:to-neutral-500 montserrat.className">
           <NextAuthProvider>
             <Toaster position="top-center" reverseOrder={false} />
             <Header />
-            {children}
+            <main className="flex-grow">{children}</main>
             <Footer />
           </NextAuthProvider>
         </div>
