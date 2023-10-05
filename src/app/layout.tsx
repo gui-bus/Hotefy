@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Header from "../components/common/Header";
 import Footer from "@/components/common/Footer";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -23,9 +24,10 @@ export default function RootLayout({
       <body className={montserrat.className}>
         <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-neutral-400 dark:to-neutral-500 montserrat.className">
           <NextAuthProvider>
+            <Toaster position="top-center" reverseOrder={false} />
             <Header />
             {children}
-            <Footer/>
+            <Footer />
           </NextAuthProvider>
         </div>
       </body>
