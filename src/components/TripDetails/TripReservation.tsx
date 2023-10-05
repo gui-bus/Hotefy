@@ -6,6 +6,7 @@ import { Button } from "@nextui-org/react";
 
 import { Controller, useForm } from "react-hook-form";
 import { differenceInDays } from "date-fns";
+import { useRouter } from "next/navigation";
 
 interface TripReservationsProps {
   tripId: string;
@@ -37,6 +38,8 @@ const TripReservation = ({
     setError,
   } = useForm<TripReservationFormProps>();
 
+  const router = useRouter();
+
   const onSubmit = async (data: TripReservationFormProps) => {
     const response = await fetch("http://localhost:3000/api/trips/check", {
       method: "POST",
@@ -57,25 +60,29 @@ const TripReservation = ({
         message: "Oops! Essa viagem já possui uma reserva nesta data.",
       });
 
-      setError("endDate", {
+      return setError("endDate", {
         type: "manual",
         message: "Oops! Essa viagem já possui uma reserva nesta data.",
       });
     }
 
     if (res?.error?.code === "INVALID_START_DATE") {
-      setError("startDate", {
+      return setError("startDate", {
         type: "manual",
         message: "Oops! Data inicial inválida.",
       });
     }
 
     if (res?.error?.code === "INVALID_END_DATE") {
-      setError("endDate", {
+      return setError("endDate", {
         type: "manual",
         message: "Oops! Data final inválida.",
       });
     }
+
+    router.push(
+      `/trips/${tripId}/confirmation?startDate=${data.startDate?.toISOString()}&endDate=${data.endDate?.toISOString()}&guests=${data.guests}`
+    );
   };
 
   const startDate = watch("startDate");
@@ -151,6 +158,16 @@ const TripReservation = ({
               required: {
                 value: true,
                 message: "O número de hóspedes é obrigatório",
+              },
+              max: {
+                value: maxGuests,
+                message: `Oops! O número de hóspedes não pode ser maior que ${maxGuests}.`,
+              },
+              validate: (value) => {
+                if (value.toString() === "0") {
+                  return "Oops! O número de hóspedes não pode ser 0.";
+                }
+                return true;
               },
             })}
             id="guestLbl"
