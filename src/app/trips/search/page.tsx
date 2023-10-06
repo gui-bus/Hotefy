@@ -31,7 +31,7 @@ const SearchResult = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mb-5">
       <div className="flex flex-col items-center justify-center my-5 text-center px-4">
         <h1 className="text-2xl font-semibold">Hospedagens encontradas</h1>
         <p className="text-sm mt-2">

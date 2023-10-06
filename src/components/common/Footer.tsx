@@ -8,7 +8,7 @@ const commonClasses =
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-100 dark:bg-[#18181b] dark:text-white shadow-lg border-t-1 dark:border-primaryHotefy-lighter border-primaryHotefy-neutral items-center flex py-2 mt-5">
+    <footer className="bg-neutral-100 dark:bg-[#18181b] dark:text-white shadow-lg border-t-1 dark:border-primaryHotefy-lighter border-primaryHotefy-neutral items-center flex py-2">
       <div className="container mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
         <div className="text-tiny my-2 md:my-0">
           &copy; {new Date().getFullYear()} Hotefy - Todos os direitos reservados.
