@@ -58,6 +58,7 @@ const SearchResult = () => {
         )}
       </div>
 
+
       <div className="container mx-auto flex flex-col md:flex-row flex-wrap items-center justify-center gap-4">
         {trips?.map((trip) => (
           <TripItem key={trip.id} trip={trip} />

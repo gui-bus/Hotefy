@@ -85,32 +85,6 @@ export default function Header() {
         </Link>
       </NavbarBrand>
 
-      <NavbarContent
-        className="hidden sm:flex gap-4 dark:text-black"
-        justify="center"
-      >
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Hotel
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Fazenda
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Chalé
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Pousada
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-
       <NavbarContent as="div" justify="end">
         {status === "loading" && (
           <Button

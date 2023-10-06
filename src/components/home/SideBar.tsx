@@ -9,12 +9,11 @@ import { Separator } from "../ui/separator";
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const buttonData = [
-  { href: "/hoteis", src: "/hotel.png", alt: "Hotel", text: "Hoteis" },
-  { href: "/fazendas", src: "/farm.png", alt: "Fazenda", text: "Fazendas" },
-  { href: "/chales", src: "/cottage.png", alt: "Chalé", text: "Chalés" },
-  { href: "/pousadas", src: "/inn.png", alt: "Pousada", text: "Pousadas" },
+  { href: "/trips/search?text=Hotel", src: "/hotel.png", alt: "Hotel", text: "Hoteis" },
+  { href: "/trips/search?text=Chalé", src: "/cottage.png", alt: "Chalé", text: "Chalés" },
+  { href: "/trips/search?text=Pousada", src: "/inn.png", alt: "Pousada", text: "Pousadas" },
   {
-    href: "/especiais",
+    href: "/trips/search?text=Especial",
     src: "/special.png",
     alt: "Especial",
     text: "Especiais",
