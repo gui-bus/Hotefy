@@ -26,7 +26,7 @@ export default function RootLayout({
           <NextAuthProvider>
             <Toaster position="top-center" reverseOrder={false} />
             <Header />
-            <main className="flex-grow">{children}</main>
+             <main className="flex-grow">{children}</main>
             <Footer />
           </NextAuthProvider>
         </div>
