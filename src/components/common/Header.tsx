@@ -15,7 +15,8 @@ import {
   Avatar,
   Button,
 } from "@nextui-org/react";
-import { FaSuitcaseRolling, FaCog, FaUser } from "react-icons/fa";
+import { FaSuitcaseRolling } from "react-icons/fa";
+import { MdTravelExplore } from "react-icons/md";
 import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { TbSunMoon } from "react-icons/tb";
 
@@ -176,7 +177,12 @@ export default function Header() {
                 <p className="font-semibold">{data?.user?.name}</p>
                 <p className="text-xs">{data?.user?.email}</p>
               </DropdownItem>
-              <DropdownItem startContent={<FaUser />}>Perfil</DropdownItem>
+              <DropdownItem
+                startContent={<MdTravelExplore />}
+                onClick={() => router.push("/")}
+              >
+                Catálogo
+              </DropdownItem>
               <DropdownItem
                 startContent={<FaSuitcaseRolling />}
                 onClick={() => router.push("/my-trips")}
@@ -184,9 +190,6 @@ export default function Header() {
                 Minhas viagens
               </DropdownItem>
 
-              <DropdownItem startContent={<FaCog />}>
-                Configurações
-              </DropdownItem>
               <DropdownItem
                 startContent={<TbSunMoon />}
                 onClick={toggleDarkMode}
