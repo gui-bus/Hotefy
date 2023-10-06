@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { RxReload } from "react-icons/rx";
-import { MdTravelExplore } from 'react-icons/md'
+import { MdTravelExplore } from "react-icons/md";
 
 const MyTrips = () => {
   const [reservations, setReservations] = useState<
@@ -17,29 +17,25 @@ const MyTrips = () => {
   >([]);
   const { status, data } = useSession();
   const router = useRouter();
+
+  const fetchReservations = async () => {
+    const response = await fetch(
+      `http://localhost:3000/api/user/${(data?.user as any)?.id}/reservations`
+    );
+    const json = await response.json();
+
+    setReservations(json);
+  };
+
   useEffect(() => {
     if (status === "unauthenticated") {
       return router.push("/");
     }
 
-    const fetchReservations = async () => {
-      const response = await fetch(
-        `http://localhost:3000/api/user/${(data?.user as any)?.id}/reservations`
-      );
-      const json = await response.json();
-
-      setReservations(json);
-    };
-
     fetchReservations();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status]);
 
-  const reloadPage = () => {
-    window.location.reload();
-  };
-
-  console.log({ reservations });
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="mt-5 text-2xl font-semibold">Minhas viagens</h1>
@@ -49,6 +45,7 @@ const MyTrips = () => {
             <UserReservationItem
               key={reservation.id}
               reservation={reservation}
+              fetchReservations={fetchReservations}
             />
           ))}
         </div>
@@ -61,8 +58,8 @@ const MyTrips = () => {
           </h1>
           <p>Que tal dar uma olhada nas opçoes?</p>
           <p className="text-tiny">
-            Caso possua uma viagem que ainda não está sendo exibida, recarregue a
-            página!
+            Caso possua uma viagem que ainda não está sendo exibida, atualize a
+            sua lista!
           </p>
 
           <Divider className="my-5" />
@@ -72,18 +69,18 @@ const MyTrips = () => {
               color="secondary"
               className="bg-secondary dark:bg-primaryHotefy-lighter text-white font-medium"
               onClick={() => router.push("/")}
-              endContent={<MdTravelExplore size={20}/>}
+              endContent={<MdTravelExplore size={20} />}
             >
-              Ver catalogo de viagens
+              Ver catálogo de viagens
             </Button>
             <Button
               variant="shadow"
               color="secondary"
               className="bg-secondary dark:bg-primaryHotefy-lighter text-white font-medium"
-              onClick={reloadPage}
-              endContent={<RxReload size={20}/>}
+              onClick={fetchReservations}
+              endContent={<RxReload size={20} />}
             >
-              Recarregar minhas viagens
+              Atualizar lista de viagens
             </Button>
           </div>
         </div>

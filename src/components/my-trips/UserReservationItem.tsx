@@ -25,19 +25,15 @@ interface UserReservationItemProps {
   reservation: Prisma.TripReservationGetPayload<{
     include: { trip: true };
   }>;
-  // fetchReservations: () => void;
+  fetchReservations: () => void;
 }
 
-const UserReservationItem = ({ reservation }: UserReservationItemProps) => {
+const UserReservationItem = ({ reservation, fetchReservations }: UserReservationItemProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { trip } = reservation;
 
   const closePopover = () => {
     setIsOpen(false);
-  };
-
-  const reloadPage = () => {
-    window.location.reload();
   };
 
   const difference = differenceInDays(
@@ -56,7 +52,7 @@ const UserReservationItem = ({ reservation }: UserReservationItemProps) => {
 
     toast.success("Reserva cancelada com sucesso!");
     setIsOpen(false);
-    reloadPage();
+    fetchReservations();
   };
 
   return (
