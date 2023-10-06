@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 
 import {
@@ -19,6 +19,7 @@ import { differenceInDays, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import ReactCountryFlag from "react-country-flag";
 import { Prisma } from "@prisma/client";
+import toast from "react-hot-toast";
 
 interface UserReservationItemProps {
   reservation: Prisma.TripReservationGetPayload<{
@@ -35,10 +36,29 @@ const UserReservationItem = ({ reservation }: UserReservationItemProps) => {
     setIsOpen(false);
   };
 
+  const reloadPage = () => {
+    window.location.reload();
+  };
+
   const difference = differenceInDays(
     new Date(reservation.endDate),
     new Date(reservation.startDate)
   );
+
+  const handleDeleteClick = async () => {
+    const res = await fetch(`/api/trips/reservation/${reservation.id}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      return toast.error("Erro ao deletar a sua reserva!");
+    }
+
+    toast.success("Reserva cancelada com sucesso!");
+    setIsOpen(false);
+    reloadPage();
+  };
+
   return (
     <Card className="w-full max-w-3xl z-10">
       <CardHeader className="bg-secondary dark:bg-primaryHotefy-lighter drop-shadow-xl"></CardHeader>
@@ -144,6 +164,7 @@ const UserReservationItem = ({ reservation }: UserReservationItemProps) => {
                   variant="shadow"
                   color="danger"
                   className="mx-auto md:my-3"
+                  onClick={handleDeleteClick}
                 >
                   Confirmar cancelamento
                 </Button>

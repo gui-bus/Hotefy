@@ -78,7 +78,7 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
       return toast.error("Ocorreu um erro ao realizer a sua reserva!");
     }
 
-    router.push('/')
+    router.push('/my-trips')
     toast.success("Reserva realizada com sucesso!");
   };
 

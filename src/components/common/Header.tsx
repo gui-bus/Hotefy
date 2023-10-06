@@ -20,6 +20,7 @@ import { LuLogIn, LuLogOut } from "react-icons/lu";
 import { TbSunMoon } from "react-icons/tb";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const { status, data } = useSession();
@@ -27,6 +28,8 @@ export default function Header() {
     const storedDarkMode = localStorage.getItem("darkMode");
     return storedDarkMode === "true";
   });
+
+  const router = useRouter();
 
   const handleLoginClick = () => signIn("google");
   const handleLogoutClick = () => signOut();
@@ -174,8 +177,11 @@ export default function Header() {
                 <p className="text-xs">{data?.user?.email}</p>
               </DropdownItem>
               <DropdownItem startContent={<FaUser />}>Perfil</DropdownItem>
-              <DropdownItem startContent={<FaSuitcaseRolling />}>
-                <Link href="/my-trips">Minhas viagens</Link>
+              <DropdownItem
+                startContent={<FaSuitcaseRolling />}
+                onClick={() => router.push("/my-trips")}
+              >
+                Minhas viagens
               </DropdownItem>
 
               <DropdownItem startContent={<FaCog />}>
