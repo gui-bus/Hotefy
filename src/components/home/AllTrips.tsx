@@ -15,11 +15,9 @@ const AllTrips = async () => {
   await prisma.$disconnect();
 
   return (
-    <section className="w-full mx-auto flex flex-wrap">
+    <section className="w-full mx-auto flex flex-col md:flex-row flex-wrap items-center justify-center gap-2">
       {data.map((trip: Trip) => (
-        <div key={trip.id} className="mx-auto">
-          <TripItem trip={trip} />
-        </div>
+        <TripItem key={trip.id} trip={trip} />
       ))}
     </section>
   );

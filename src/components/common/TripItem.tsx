@@ -18,15 +18,15 @@ const TripItem = ({ trip }: TripItemProps) => {
       <Card
         isPressable
         radius="md"
-        className="border-none w-[18.5rem] mb-3 lg:mb-5 shadow-none select-none"
+        className="border-none w-full shadow-none select-none"
       >
         <Image
           className="object-cover h-full w-full aspect-square"
           as={NextImage}
           src={trip.coverImage}
           alt={trip.name}
-          width={320}
-          height={320}
+          width={300}
+          height={300}
         />
         <CardFooter className="justify-between bg-[#18181b] border-white/20 border-1 overflow-hidden absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 py-2">
           <div className="flex flex-col gap-1 items-center">

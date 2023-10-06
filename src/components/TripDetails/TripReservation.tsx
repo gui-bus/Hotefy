@@ -106,7 +106,7 @@ const TripReservation = ({
               rules={{
                 required: {
                   value: true,
-                  message: "A data é obrigatória",
+                  message: "A data inicial é obrigatória",
                 },
               }}
               control={control}
@@ -119,7 +119,7 @@ const TripReservation = ({
                   selected={field.value}
                   placeholderText="Insira a data inicial da viagem"
                   className="w-full"
-                  minDate={tripStartDate}
+                  minDate={new Date()}
                 />
               )}
             />
@@ -133,7 +133,7 @@ const TripReservation = ({
               rules={{
                 required: {
                   value: true,
-                  message: "A data é obrigatória",
+                  message: "A data final é obrigatória",
                 },
               }}
               control={control}
@@ -228,7 +228,9 @@ const TripReservation = ({
             >
               Reservar viagem
             </Button>
-            <p className="mt-2 font-medium text-xs">Para reservar uma viagem é necessário fazer login!</p>
+            <p className="mt-2 font-medium text-xs">
+              Para reservar uma viagem é necessário fazer login!
+            </p>
           </div>
         )}
       </div>

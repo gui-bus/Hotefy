@@ -13,14 +13,12 @@ const InternationalTrips = async () => {
 
   await prisma.$disconnect();
 
-  const nonBrazilTrips = data.filter((trip: Trip) => trip.countryCode !== 'BR');
+  const nonBrazilTrips = data.filter((trip: Trip) => trip.countryCode !== "BR");
 
   return (
-    <section className="w-full mx-auto flex flex-wrap">
+    <section className="w-full mx-auto flex flex-col md:flex-row flex-wrap items-center justify-center gap-2">
       {nonBrazilTrips.map((trip: Trip) => (
-        <div key={trip.id} className="mx-auto">
-          <TripItem trip={trip} />
-        </div>
+        <TripItem trip={trip} key={trip.id} />
       ))}
     </section>
   );

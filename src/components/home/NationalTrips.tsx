@@ -14,14 +14,12 @@ const NationalTrips = async () => {
   await prisma.$disconnect();
 
   // Filtrar as trips com countryCode igual a 'BR'
-  const brazilTrips = data.filter((trip: Trip) => trip.countryCode === 'BR');
+  const brazilTrips = data.filter((trip: Trip) => trip.countryCode === "BR");
 
   return (
-    <section className="w-full mx-auto flex flex-wrap">
+    <section className="w-full mx-auto flex flex-col md:flex-row flex-wrap items-center justify-center gap-2">
       {brazilTrips.map((trip: Trip) => (
-        <div key={trip.id} className="mx-auto">
-          <TripItem trip={trip} />
-        </div>
+        <TripItem trip={trip} key={trip.id} />
       ))}
     </section>
   );
