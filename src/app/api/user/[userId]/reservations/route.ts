@@ -7,16 +7,6 @@ export async function GET(
 ) {
   const { searchParams } = new URL(request.url);
 
-
-  if (!userId) {
-    return {
-      status: 400,
-      body: {
-        message: "Missing userId",
-      },
-    };
-  }
-
   const reservations = await prisma.tripReservation.findMany({
     where: {
       userId: userId,
