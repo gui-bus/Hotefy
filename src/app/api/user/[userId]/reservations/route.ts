@@ -7,7 +7,6 @@ export async function GET(
 ) {
   const { searchParams } = new URL(request.url);
 
-
   if (!userId) {
     return {
       status: 400,
@@ -26,6 +25,10 @@ export async function GET(
     },
   });
 
-
-  return new NextResponse(JSON.stringify(reservations), { status: 200 });
+  return new NextResponse(JSON.stringify(reservations), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
