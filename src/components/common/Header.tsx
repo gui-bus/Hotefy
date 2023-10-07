@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -6,7 +6,6 @@ import {
   Navbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem,
   Link,
   DropdownItem,
   DropdownTrigger,
@@ -26,8 +25,11 @@ import { useRouter } from "next/navigation";
 export default function Header() {
   const { status, data } = useSession();
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    const storedDarkMode = localStorage.getItem("darkMode");
-    return storedDarkMode === "true";
+    if (typeof window !== "undefined") {
+      const storedDarkMode = localStorage.getItem("darkMode");
+      return storedDarkMode === "true";
+    }
+    return false;
   });
 
   const router = useRouter();
@@ -39,22 +41,29 @@ export default function Header() {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
 
-    localStorage.setItem("darkMode", newDarkMode.toString());
-
-    const htmlElement = document.querySelector("html");
-    if (newDarkMode) {
-      htmlElement?.classList.add("dark");
-    } else {
-      htmlElement?.classList.remove("dark");
+    if (typeof window !== "undefined") {
+      localStorage.setItem("darkMode", newDarkMode.toString());
+      const htmlElement = document.querySelector("html");
+      if (htmlElement) {
+        if (newDarkMode) {
+          htmlElement.classList.add("dark");
+        } else {
+          htmlElement.classList.remove("dark");
+        }
+      }
     }
   };
 
   useEffect(() => {
-    const htmlElement = document.querySelector("html");
-    if (isDarkMode) {
-      htmlElement?.classList.add("dark");
-    } else {
-      htmlElement?.classList.remove("dark");
+    if (typeof window !== "undefined") {
+      const htmlElement = document.querySelector("html");
+      if (htmlElement) {
+        if (isDarkMode) {
+          htmlElement.classList.add("dark");
+        } else {
+          htmlElement.classList.remove("dark");
+        }
+      }
     }
   }, [isDarkMode]);
 

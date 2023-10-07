@@ -160,7 +160,6 @@ const UserReservationItem = ({ reservation, fetchReservations }: UserReservation
                   variant="shadow"
                   color="danger"
                   className="mx-auto md:my-3"
-                  onClick={handleDeleteClick}
                 >
                   Confirmar cancelamento
                 </Button>
