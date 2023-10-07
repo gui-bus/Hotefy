@@ -16,6 +16,4 @@ export async function DELETE(_request: Request, { params: { reservationId } }: {
       id: reservationId,
     },
   });
-
-  return new NextResponse(JSON.stringify(reservation), { status: 200 });
 }
