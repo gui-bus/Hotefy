@@ -41,6 +41,7 @@
     "react-hook-form": "^7.47.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
+    "sharp": "^0.32.6",
     "stripe": "^13.9.0",
     "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",
