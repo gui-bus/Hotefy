@@ -42,10 +42,6 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
     "sharp": "^0.32.6",
-<<<<<<< HEAD
-=======
-    "stripe": "^13.9.0",
->>>>>>> e447aecf05ab090abc3398880bbe3812f0f154e8
     "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
