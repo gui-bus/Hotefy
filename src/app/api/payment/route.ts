@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   } = req;
 
   const session = await stripe.checkout.sessions.create({
-    success_url: "http://localhost:3000/my-trips",
+    success_url: "/my-trips",
     metadata: {
       tripId,
       startDate,
