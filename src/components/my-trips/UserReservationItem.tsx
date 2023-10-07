@@ -41,19 +41,19 @@ const UserReservationItem = ({ reservation, fetchReservations }: UserReservation
     new Date(reservation.startDate)
   );
 
-  const handleDeleteClick = async () => {
-    const res = await fetch(`/api/trips/reservation/${reservation.id}`, {
-      method: "DELETE",
-    });
+  // const handleDeleteClick = async () => {
+  //   const res = await fetch(`/api/trips/reservation/${reservation.id}`, {
+  //     method: "DELETE",
+  //   });
 
-    if (!res.ok) {
-      return toast.error("Erro ao deletar a sua reserva!");
-    }
+  //   if (!res.ok) {
+  //     return toast.error("Erro ao deletar a sua reserva!");
+  //   }
 
-    toast.success("Reserva cancelada com sucesso!");
-    setIsOpen(false);
-    fetchReservations();
-  };
+  //   toast.success("Reserva cancelada com sucesso!");
+  //   setIsOpen(false);
+  //   fetchReservations();
+  // };
 
   return (
     <Card className="w-full max-w-3xl z-10">
@@ -160,7 +160,7 @@ const UserReservationItem = ({ reservation, fetchReservations }: UserReservation
                   variant="shadow"
                   color="danger"
                   className="mx-auto md:my-3"
-                  onClick={handleDeleteClick}
+                  isDisabled
                 >
                   Confirmar cancelamento
                 </Button>
