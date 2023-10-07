@@ -24,6 +24,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@react-google-maps/api": "^2.19.2",
+    "@stripe/stripe-js": "^2.1.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
@@ -41,6 +42,10 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
     "sharp": "^0.32.6",
+<<<<<<< HEAD
+=======
+    "stripe": "^13.9.0",
+>>>>>>> e447aecf05ab090abc3398880bbe3812f0f154e8
     "swiper": "^10.3.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
