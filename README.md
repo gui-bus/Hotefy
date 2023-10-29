@@ -4,7 +4,24 @@
   <img src="https://github.com/gui-bus/Hotefy/blob/main/github/desktop/desktop_home_dark.png?raw=true" alt="Desktop Homepage" width="700" />
 </div>
 
+<div align="center">
+<h2 align="center">Atalhos de navegação</h1>
+
+***[Sobre o projeto](#hotefy-hotel)*** :hotel:​ 
+***[Funcionalidades](#funcionalidades-dart)*** :dart:​ 
+***[Como acessar o Hotefy](#como-acessar-a-página-gear)*** :gear: 
+***[Tecnologias utilizadas](#tecnologias-utilizadas-dart)*** :dart: 
+***[Galeria](#galeria-camera)*** :camera: 
+***[Contribuição](#contribuição-bulb)*** :bulb:
+***[Créditos e Agradecimentos](#creditos-e-agradecimentos-handshake)*** :handshake:
+***[Contato](#redes-sociais-para-contato-speech_balloon)*** :speech_balloon:
+***[Página personalizada](#precisa-de-uma-pagina-personalizada-para-o-seu-negócio-rocket)*** :rocket:
+
+</div>
+
 ## Hotefy :hotel:
+
+<br>
 
 ***O [Hotefy](https://hotefy.vercel.app/) é uma plataforma de reservas de viagens desenvolvido com React, Typescript, Next.js, NextUI, ShadCN/UI, Tailwind CSS, Prisma, Supabase e Vercel.*** O projeto conta com opçoes de viagens para todos os gostos, venha encontrar o refúgio perfeito e realizar os seus sonhos!
 
@@ -37,17 +54,16 @@
 
 ## Tecnologias utilizadas :dart:
 
-<div style="display: inline_block"><br>
-  <img align="center" alt="React" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/react/react-original.svg"> &nbsp;&nbsp;
-  <img align="center" alt="Typescript" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/typescript/typescript-plain.svg">
- &nbsp;&nbsp;
-  <img align="center" alt="NextJS" height="50" width="50" src="https://www.datocms-assets.com/75941/1657707878-nextjs_logo.png"> &nbsp;&nbsp;
-   <img align="center" alt="NextUI" height="50" width="50" src="https://github.com/nextui-org/nextui/blob/main/apps/docs/public/isotipo.png?raw=true"> &nbsp;&nbsp;
-  <img align="center" alt="Shad CN/UI" height="50" width="50" src="https://avatars.githubusercontent.com/u/139895814?s=280&v=4"> &nbsp;&nbsp;
-  <img align="center" alt="Tailwind" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/tailwindcss/tailwindcss-plain.svg"> &nbsp;&nbsp;
-  <img align="center" alt="Prisma" height="50" width="50" src="https://www.svgrepo.com/show/373776/light-prisma.svg"> &nbsp;&nbsp;
-  <img align="center" alt="Supabase" height="50" width="50" src="https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png"> &nbsp;&nbsp;
-   <img align="center" alt="Vercel" height="50" width="50" src="https://www.svgrepo.com/show/361653/vercel-logo.svg"> &nbsp;&nbsp;
+<div>
+	<img alt="React" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/React.svg">
+	<img alt="Typescript" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/Typescript.svg">
+	<img alt="NextJS" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/NextJS.svg">
+	<img alt="NextUI" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/NextUI.svg">
+	<img alt="Tailwind" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/TailwindCSS.svg">
+	<img alt="ShadCNUI" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/ShadCNUI.svg">
+	<img alt="Prisma" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/PrismaORM.svg">
+	<img alt="Supabase" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/Supabase.svg">
+	<img alt="Vercel" height="80" width="80" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/Vercel.svg">
 </div>
 
 ## Galeria :camera:
@@ -135,9 +151,15 @@ Gostaria de contribuir para o projeto? ***Fico muito grato pelo interesse!***
 
 ## Redes sociais para contato! :speech_balloon:
 
-[![LinkedIn](https://img.icons8.com/color/48/000000/linkedin.png)](https://www.linkedin.com/in/gui-bus/) 
-[![Instagram](https://img.icons8.com/fluency/48/000000/instagram-new.png)](https://www.instagram.com/guibus_dev/)
-[![Gmail](https://img.icons8.com/fluency/48/000000/gmail.png)](mailto:guibus.dev@gmail.com)
+<a href="https://www.instagram.com/guibus_dev/" target="_blank">
+	<img alt="Instagram" height="60" width="60"  src="https://github.com/gui-bus/TechIcons/blob/main/Dark/Instagram.svg"> 
+</a>
+<a href="https://www.linkedin.com/in/gui-bus/" target="_blank">
+	<img alt="LinkedIn" height="60" width="60"  src="https://github.com/gui-bus/TechIcons/blob/main/Dark/Linkedin.svg"> 
+</a>
+<a href="mailto:guibus.dev@gmail.com" target="_blank">
+	<img alt="Gmail" height="60" width="60" src="https://github.com/gui-bus/TechIcons/blob/main/Dark/Gmail.svg"> 
+</a>
 
 
 ## Precisa de uma pagina personalizada para o seu negócio? :rocket:
