@@ -1,7 +1,7 @@
 "use client";
 
 import UserReservationItem from "@/components/my-trips/UserReservationItem";
-import { Button, Divider, Link } from "@nextui-org/react";
+import { Button, Divider } from "@nextui-org/react";
 import { Prisma } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
